@@ -17,14 +17,14 @@ const styles = StyleSheet.create({
     container: {
         position: 'absolute',
         elevation: 1,
-        height: 35,
+        height: 70,
         width: '100%',
         marginTop: STATUS_BAR_HEIGHT,
         alignItems: 'center',
     },
     logo: {
-        width: 70,
-        maxHeight: 35,
+        width: 100,
+        maxHeight: 50,
         resizeMode: 'contain',
     }
 })
