@@ -1,6 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, ImageBackground } from 'react-native';
-import BackgroundImage from '../assets/homePageBackground.jpg';
+import BackgroundImage from '../assets/homePageBackGroundSith.png';
+import CardComponent from '../Components/CardComponent';
 
 const HomeScreen = () => {
     const { container, imageBackground } = styles;
@@ -8,7 +9,7 @@ const HomeScreen = () => {
     return (
         <View style={container}>
             <ImageBackground source={BackgroundImage} style={imageBackground} resizeMode='cover'>
-                <Text>Bonjour</Text>
+                <CardComponent />
             </ImageBackground>
         </View>
     )
@@ -18,12 +19,12 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
     },
     imageBackground: {
         flex: 1,
         justifyContent: 'center',
-        width: '100%'
+        width: '100%', 
     }
 });
 
