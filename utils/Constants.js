@@ -10,21 +10,21 @@ export const CATEGORY_DATAS = [
     {
         id: 1,
         title: "Personnages",
-        src: "../assets/imgPerso.jpg",
+        src: require("../assets/character.jpg"),
     },
     {
         id: 2,
-        title: "Planètes",
-        src: "../assets/movieCarousel/CaptainAmericaPoster.jfif",
-    }, 
+        title: "Vaisseaux",
+        src: require("../assets/starships.jpg"),
+    },
     {
         id: 3,
-        title: "Vaisseaux",
-        src: "../assets/movieCarousel/badBatchPoster.jfif",
+        title: "Planètes",
+        src: require("../assets/planet.jpg"),
     },
     {
         id: 4,
         title: "Véhicules",
-        src: "../assets/movieCarousel/badBatchPoster.jfif",
+        src: require("../assets/vehicule.jpg"),
     }
 ];

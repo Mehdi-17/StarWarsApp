@@ -1,18 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
-import { CATEGORY_DATAS } from '../utils/Constants';
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
 
-//TODO: une fois le composant carte développé, on envoie les datas en props depuis HOME.
-const datas = CATEGORY_DATAS;
-const CardComponent = () => {
+const CardComponent = ({ cardTitle, backgroundImageUrl, onPressCard, cardStyle }) => {
     const { container, text, categoryImageBackground } = styles;
 
     return (
-        <View style={container}>
-            <ImageBackground source={require("../assets/imgPerso.jpg")} style={categoryImageBackground} resizeMode='cover' >
-                <Text style={text}>{datas[0].title}</Text>
+        <TouchableOpacity style={[container, cardStyle]} onPress={onPressCard}>
+            <ImageBackground source={backgroundImageUrl} style={categoryImageBackground} resizeMode='cover' >
+                <Text style={text}>{cardTitle}</Text>
             </ImageBackground>
-        </View>
+        </TouchableOpacity>
     )
 }
 
@@ -28,7 +25,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: '100%',
         borderRadius: 10,
-        overflow:'hidden',
+        overflow: 'hidden',
     },
     text: {
         color: 'white',

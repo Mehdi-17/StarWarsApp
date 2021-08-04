@@ -1,15 +1,15 @@
 import React from 'react'
-import { View, Text, StyleSheet, ImageBackground } from 'react-native';
+import { View, StyleSheet, ImageBackground } from 'react-native';
 import BackgroundImage from '../assets/homePageBackGroundSith.png';
-import CardComponent from '../Components/CardComponent';
+import HomePageFlatListComponent from '../Components/HomePageFlatListComponent';
 
 const HomeScreen = () => {
-    const { container, imageBackground } = styles;
+    const { container, imageBackground, flatListStyle } = styles;
 
     return (
         <View style={container}>
             <ImageBackground source={BackgroundImage} style={imageBackground} resizeMode='cover'>
-                <CardComponent />
+                <HomePageFlatListComponent parentStyle={flatListStyle} />
             </ImageBackground>
         </View>
     )
@@ -24,7 +24,12 @@ const styles = StyleSheet.create({
     imageBackground: {
         flex: 1,
         justifyContent: 'center',
-        width: '100%', 
+        width: '100%',
+    },
+    flatListStyle: {
+        position: 'absolute',
+        bottom: '10%',
+        paddingLeft: 20,
     }
 });
 
