@@ -1,10 +1,13 @@
-import React from 'react';
 import { StatusBar, Platform } from 'react-native';
 
 export const STATUS_BAR_HEIGHT = StatusBar.currentHeight;
 export const PLATFORM = Platform.OS === 'android' ? 'md' : 'ios';
 export const APP_BACKGROUND_COLOR = '#071532';
 
+export const API_CHARACTERS_URL = 'https://swapi.dev/api/people/';
+export const API_STARSHIPS_URL = 'https://swapi.dev/api/starships/';
+export const API_VEHICLES_URL = 'https://swapi.dev/api/vehicles/';
+export const API_PLANETS_URL = 'https://swapi.dev/api/planets/';
 
 export const CATEGORY_DATAS = [
     {

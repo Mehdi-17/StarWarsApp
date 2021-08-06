@@ -3,16 +3,21 @@ import { View, StyleSheet, FlatList } from 'react-native';
 import { CATEGORY_DATAS } from '../utils/Constants';
 import CardComponent from './CardComponent';
 
-const HomePageFlatListComponent = ({ parentStyle }) => {
+const HomePageFlatListComponent = ({ parentStyle, navigation }) => {
     const [selectedId, setSelectedId] = useState(null);
     const { container, cardItemStyle } = styles;
+
+    const openSearch = (id) => {
+        setSelectedId(id);
+        navigation.navigate('SearchResult', {searchId : id});
+    }
 
     const renderCard = ({ item }) => (
         <CardComponent
             key={item.id}
             backgroundImageUrl={item.src}
             cardTitle={item.title}
-            onPressCard={() => setSelectedId(item.id)}
+            onPressCard={() => openSearch(item.id)}
             cardStyle={cardItemStyle}
         />
     );

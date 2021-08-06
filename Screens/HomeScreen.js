@@ -3,13 +3,14 @@ import { View, StyleSheet, ImageBackground } from 'react-native';
 import BackgroundImage from '../assets/homePageBackGroundSith.png';
 import HomePageFlatListComponent from '../Components/HomePageFlatListComponent';
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     const { container, imageBackground, flatListStyle } = styles;
+
 
     return (
         <View style={container}>
             <ImageBackground source={BackgroundImage} style={imageBackground} resizeMode='cover'>
-                <HomePageFlatListComponent parentStyle={flatListStyle} />
+                <HomePageFlatListComponent parentStyle={flatListStyle} navigation={navigation} />
             </ImageBackground>
         </View>
     )
