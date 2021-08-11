@@ -33,7 +33,7 @@ const SearchResultScreen = ({ navigation, route }) => {
     if (dataToDisplay === null) {
         return (
             <View style={container}>
-                <ActivityIndicator size="large" color={SECONDARY_APP_COLOR} />
+                <ActivityIndicator size="large" color="white" />
             </View>
         );
     } else {
