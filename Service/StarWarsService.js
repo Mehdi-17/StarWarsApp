@@ -1,8 +1,10 @@
+import { LUKE_FOR_DEBUG } from '../utils/Constants';
+
 export const getDataToDisplay = async (url) => {
     const response = await getData(url);
     const returnObject = buildDataObject(response);
     let datasToSave = returnObject.items;
-    
+
     if (returnObject.next !== null) {
         await loadMoreApiDatasIf(returnObject.next, datasToSave);
     }
@@ -33,6 +35,7 @@ const buildDataObject = (data) => {
     };
 }
 
+//TODO: find a way to display the good image from each characters
 const collectItems = (results) => {
-    return results.map(item => ({ name: item.name, url: item.url }));
+    return results.map(item => ({ id: item.url, title: item.name, src: LUKE_FOR_DEBUG, url: item.url }));
 }

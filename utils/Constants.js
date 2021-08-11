@@ -1,8 +1,19 @@
 import { StatusBar, Platform } from 'react-native';
+import { DefaultTheme } from '@react-navigation/native';
 
 export const STATUS_BAR_HEIGHT = StatusBar.currentHeight;
 export const PLATFORM = Platform.OS === 'android' ? 'md' : 'ios';
 export const APP_BACKGROUND_COLOR = '#071532';
+export const SECONDARY_APP_COLOR = '#12294d';
+export const LUKE_FOR_DEBUG = require("../assets/character.jpg");
+
+export const appTheme = {
+    ...DefaultTheme,
+    colors: {
+        ...DefaultTheme.colors,
+        background: APP_BACKGROUND_COLOR
+    }
+};
 
 export const CATEGORY_DATAS = [
     {

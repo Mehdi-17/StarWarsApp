@@ -4,12 +4,13 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from './Screens/HomeScreen';
 import HeaderComponent from './Components/HeaderComponent';
 import SearchResultScreen from './Screens/SearchResultScreen';
+import { appTheme } from './utils/Constants';
 
 const Stack = createStackNavigator();
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <NavigationContainer theme={appTheme}>
       <HeaderComponent />
       <Stack.Navigator
         screenOptions={() => {

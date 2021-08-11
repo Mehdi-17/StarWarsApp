@@ -1,17 +1,16 @@
 import React, { useEffect, useState } from 'react';
-import { View, Text, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
-import CardComponent from '../Components/CardComponent';
+import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import { getDataToDisplay } from '../Service/StarWarsService';
-import { CATEGORY_DATAS } from '../utils/Constants';
+import { APP_BACKGROUND_COLOR, CATEGORY_DATAS, SECONDARY_APP_COLOR } from '../utils/Constants';
+import FlatListComponent from '../Components/FlatListComponent';
 
-//TODO: Use the data received from the API to display card properly.
-//TODO: Display data in flat list and not in a scrollview
+
 //TODO: Improve performance of getDataToDisplay
 
 const SearchResultScreen = ({ navigation, route }) => {
     const { searchId } = route.params;
     const [dataToDisplay, setDataToDisplay] = useState(null);
-    const { container, cardItemStyle } = styles;
+    const { container, flatListContainer, cardContainerStyle, titleCardStyle, imageBackgroundCardStyle } = styles;
 
     useEffect(() => {
         const apiUrl = getApiUrl(searchId);
@@ -26,26 +25,32 @@ const SearchResultScreen = ({ navigation, route }) => {
         return CATEGORY_DATAS.filter((category) => searchId === category.id)[0].url;
     }
 
+    const openCharacterPage = (item) => {
+        //TODO: open the character page here;
+        console.log("You clicked on : ", item.title);
+    }
+
     if (dataToDisplay === null) {
         return (
             <View style={container}>
-                <ActivityIndicator size="large" color="#071532" />
+                <ActivityIndicator size="large" color={SECONDARY_APP_COLOR} />
             </View>
         );
     } else {
         return (
-            <ScrollView>
-                <Text>Api return :</Text>
-                {dataToDisplay.map(item => {
-                    return (
-                        <CardComponent
-                            key={item.url}
-                            cardTitle={item.name}
-                            cardStyle={cardItemStyle}
-                            backgroundImageUrl={require("../assets/character.jpg")} />
-                    )
-                })}
-            </ScrollView>
+            <View style={container}>
+                <FlatListComponent
+                    parentStyle={flatListContainer}
+                    booHorizontal={false}
+                    numColumns={2}
+                    navigation={navigation}
+                    dataToDisplay={dataToDisplay}
+                    onPress={openCharacterPage}
+                    cardContainerStyle={cardContainerStyle}
+                    titleCardStyle={titleCardStyle}
+                    imageBackgroundCardStyle={imageBackgroundCardStyle}
+                />
+            </View>
         );
     }
 
@@ -56,9 +61,30 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
     },
-    cardItemStyle: {
-        height: 250,
+    flatListContainer: {
+        flex: 1,
+        alignItems: 'center',
+        width: '100%',
+        paddingLeft: 20,
+        paddingRight: 20
+    },
+    cardContainerStyle: {
         width: 150,
+        height: 300,
+        borderRadius: 10,
+        marginVertical: 6,
+        borderColor: SECONDARY_APP_COLOR,
+        borderWidth: 1,
+    },
+    imageBackgroundCardStyle: {
+        borderRadius: 10,
+        justifyContent: 'flex-end',
+        alignItems: 'center'
+    },
+    titleCardStyle: {
+        color: 'white',
+        fontSize: 20,
+        textAlign: 'center'
     }
 });
 
