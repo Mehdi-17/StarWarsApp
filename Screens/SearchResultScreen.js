@@ -1,28 +1,30 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
 import CardComponent from '../Components/CardComponent';
-import { getDatasFromId } from '../Service/StarWarsService';
+import { getDataToDisplay } from '../Service/StarWarsService';
+import { CATEGORY_DATAS } from '../utils/Constants';
 
-//TODO : Use the data received from the API to display card properly.
-
+//TODO: Use the data received from the API to display card properly.
+//TODO: Display data in flat list and not in a scrollview
+//TODO: Improve performance of getDataToDisplay
 
 const SearchResultScreen = ({ navigation, route }) => {
     const { searchId } = route.params;
     const [dataToDisplay, setDataToDisplay] = useState(null);
-    const [hasNext, setHasNext] = useState('');
     const { container, cardItemStyle } = styles;
 
     useEffect(() => {
-        getDatasFromId(searchId)
-            .then((data) => {
-                const returnObject = {
-                    next: data.next,
-                    items: data.results.map(item => ({ name: item.name, url: item.url }))
-                };
-                setHasNext(returnObject.next);
-                setDataToDisplay(returnObject.items);
+        const apiUrl = getApiUrl(searchId);
+        getDataToDisplay(apiUrl)
+            .then((responseData) => {
+                setDataToDisplay(responseData);
             });
-    }, [searchId]);
+    }, []);
+
+
+    const getApiUrl = (searchId) => {
+        return CATEGORY_DATAS.filter((category) => searchId === category.id)[0].url;
+    }
 
     if (dataToDisplay === null) {
         return (

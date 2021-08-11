@@ -1,25 +1,38 @@
-import { API_CHARACTERS_URL, API_PLANETS_URL, API_STARSHIPS_URL, API_VEHICLES_URL } from "../utils/Constants";
+export const getDataToDisplay = async (url) => {
+    const response = await getData(url);
+    const returnObject = buildDataObject(response);
+    let datasToSave = returnObject.items;
+    
+    if (returnObject.next !== null) {
+        await loadMoreApiDatasIf(returnObject.next, datasToSave);
+    }
+    return datasToSave;
 
-export const getDatasFromId = async (searchId) => {
-    let apiUrl;
-    switch (searchId) {
-        case 1:
-            apiUrl = API_CHARACTERS_URL;
-            break;
-        case 2:
-            apiUrl = API_STARSHIPS_URL;
-            break;
-        case 3:
-            apiUrl = API_PLANETS_URL;
-            break;
-        case 4:
-            apiUrl = API_VEHICLES_URL;
-            break;
-        default:
-            console.error("The Result is not found");
-    };
+};
 
-    return await fetch(apiUrl)
+const getData = async (url) => {
+    return await fetch(url)
         .then((response) => response.json())
         .catch((err) => console.error(err));
 };
+
+const loadMoreApiDatasIf = async (url, currentDatas) => {
+    let hasNext = true;
+    while (hasNext) {
+        const response = await getData(url);
+        url = response.next
+        hasNext = url !== null;
+        currentDatas.push(...collectItems(response.results));
+    }
+};
+
+const buildDataObject = (data) => {
+    return {
+        next: data.next,
+        items: collectItems(data.results)
+    };
+}
+
+const collectItems = (results) => {
+    return results.map(item => ({ name: item.name, url: item.url }));
+}
