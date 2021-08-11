@@ -6,7 +6,7 @@ import { CATEGORY_DATAS, SECONDARY_APP_COLOR } from '../utils/Constants';
 
 const HomeScreen = ({ navigation }) => {
     const { container, imageBackground, flatListContainer, cardContainerStyle, imageBackgroundCardStyle, titleCardStyle } = styles;
-
+    //TODO: Develop the search features
     const openSearch = (item) => {
         navigation.navigate('SearchResult', { searchId: item.id });
     }
