@@ -26,19 +26,22 @@ export const CATEGORY_DATAS = [
         id: 2,
         title: "Vaisseaux",
         src: require("../assets/starships.jpg"),
-        url: 'https://swapi.dev/api/starships/'
+        url: "https://swapi.dev/api/starships/",
+        imageForSearch: "https://cafans.b-cdn.net/images/Category_13911/subcat_27614/5qBTj0jL_2704202055441sbpi.jpg"
     },
     {
         id: 3,
         title: "Planètes",
         src: require("../assets/planet.jpg"),
-        url: 'https://swapi.dev/api/planets/'
+        url: 'https://swapi.dev/api/planets/',
+        imageForSearch:"https://media.firerank.com/upload/dli/13312/3a66838774_500.jpg"
     },
     {
         id: 4,
         title: "Véhicules",
         src: require("../assets/vehicule.jpg"),
-        url: 'https://swapi.dev/api/vehicles/'
+        url: 'https://swapi.dev/api/vehicles/',
+        imageForSearch: "http://pm1.narvii.com/6997/f1d7fd2f297bbedc880fdd8ef8b0ae7d0339944dr1-594-598v2_uhq.jpg"
     }
 ];
 

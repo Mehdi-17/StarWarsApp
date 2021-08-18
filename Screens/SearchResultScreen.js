@@ -23,7 +23,6 @@ const SearchResultScreen = ({ navigation, route }) => {
     }
 
     const openCharacterPage = (item) => {
-        console.log("You clicked on : ", item.title);
         navigation.navigate('Item', {item: item});
     }
 
