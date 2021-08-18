@@ -43,12 +43,12 @@ export const CATEGORY_DATAS = [
 ];
 
 export const CHARACTERS_IMAGES = [
-    { id: 1, image: "https://vignette.wikia.nocookie.net/starwars/images/2/20/LukeTLJ.jpg" },
-    { id: 2, image: "https://vignette.wikia.nocookie.net/starwars/images/3/3f/C-3PO_TLJ_Card_Trader_Award_Card.png" },
-    { id: 3, image: "https://vignette.wikia.nocookie.net/starwars/images/e/eb/ArtooTFA2-Fathead.png" },
-    { id: 4, image: "https://vignette.wikia.nocookie.net/fr.starwars/images/3/32/Dark_Vador.jpg" },
-    { id: 5, image: "https://vignette.wikia.nocookie.net/starwars/images/f/fc/Leia_Organa_TLJ.png" },
-    { id: 6, image: "https://vignette.wikia.nocookie.net/starwars/images/e/eb/OwenCardTrader.png" },
+    { id: 1, image: "https://terrigen-cdn-dev.marvel.com/content/prod/1x/clean_190.jpg" },
+    { id: 2, image: "https://i.pinimg.com/originals/a2/21/8e/a2218e051fcd0232d8907d116f945517.jpg" },
+    { id: 3, image: "https://i.pinimg.com/originals/ab/10/1f/ab101fe0d578470dd53cc42a1adb2166.jpg" },
+    { id: 4, image: "https://pbs.twimg.com/media/DbEvNqEX0AAPQ-_.jpg" },
+    { id: 5, image: "https://i.pinimg.com/originals/de/49/4c/de494c718156266a16312055a9fe9ae1.jpg" },
+    { id: 6, image: "https://comicvine.gamespot.com/a/uploads/scale_small/6/62795/5012547-star%20wars.jpg" },
     { id: 7, image: "https://vignette.wikia.nocookie.net/starwars/images/c/cc/BeruCardTrader.png" },
     { id: 8, image: "https://vignette.wikia.nocookie.net/starwars/images/c/cb/R5-D4_Sideshow.png" },
     { id: 9, image: "https://vignette.wikia.nocookie.net/starwars/images/0/00/BiggsHS-ANH.png" },
