@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet, ActivityIndicator, ScrollView } from 'react-native';
+import { View, StyleSheet, ActivityIndicator } from 'react-native';
 import { getDataToDisplay } from '../Service/StarWarsService';
-import { APP_BACKGROUND_COLOR, CATEGORY_DATAS, SECONDARY_APP_COLOR } from '../utils/Constants';
+import {CATEGORY_DATAS, SECONDARY_APP_COLOR } from '../utils/Constants';
 import FlatListComponent from '../Components/FlatListComponent';
 
 const SearchResultScreen = ({ navigation, route }) => {
@@ -11,7 +11,7 @@ const SearchResultScreen = ({ navigation, route }) => {
 
     useEffect(() => {
         const apiUrl = getApiUrl(searchId);
-        getDataToDisplay(apiUrl)
+        getDataToDisplay(apiUrl, searchId)
             .then((responseData) => {
                 setDataToDisplay(responseData);
             });
@@ -23,8 +23,8 @@ const SearchResultScreen = ({ navigation, route }) => {
     }
 
     const openCharacterPage = (item) => {
-        //TODO: open the character page here;
         console.log("You clicked on : ", item.title);
+        navigation.navigate('Item', {item: item});
     }
 
     if (dataToDisplay === null) {

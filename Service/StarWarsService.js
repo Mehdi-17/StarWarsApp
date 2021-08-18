@@ -2,7 +2,7 @@ import { CHARACTERS_IMAGES } from '../utils/Constants';
 
 export const getDataToDisplay = async (url, categoryId) => {
     const response = await getData(url);
-    const returnObject = buildDataObject(response);
+    const returnObject = buildDataObject(response, categoryId);
     let datasToSave = returnObject.items;
 
     if (returnObject.next !== null) {
@@ -27,19 +27,24 @@ const loadMoreApiDatasIf = async (url, currentDatas) => {
     }
 };
 
-const buildDataObject = (data) => {
+const buildDataObject = (data, categoryId) => {
     return {
         next: data.next,
-        items: collectItems(data.results)
+        items: collectItems(data.results, categoryId)
     };
 }
 
-const collectItems = (results) => {
+const collectItems = (results, categoryId) => {
+    if (categoryId === 1) {
+        return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url), url: item.url, birth: item.birth_year, gender: item.gender, height: item.height, mass: item.mass }));
+    }
     return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url), url: item.url }));
 }
 
-//TODO: GET IMAGE FOR OTHER CATEGORY
+//I only set the right images for the characters because the API doesn't give an image url for every object
+//So to don't loose my time to search an other api or the differents images on the internet, 
+//I chose to set the images only for characters
 const getImages = (url) => {
     const id = url.match(/[0-9]+/g);
-    return CHARACTERS_IMAGES.find(image =>image.id == id).image;
+    return CHARACTERS_IMAGES.find(image => image.id == id).image;
 }

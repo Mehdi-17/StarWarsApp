@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
+import { Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 
 const CardComponent = ({ cardTitle, titleCardStyle, imageBackgroundCardStyle, backgroundImageUrl, onPressCard, cardStyle, imageFromInternet }) => {
     const { categoryImageBackground } = styles;
