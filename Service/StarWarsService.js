@@ -1,6 +1,6 @@
-import { LUKE_FOR_DEBUG } from '../utils/Constants';
+import { CHARACTERS_IMAGES } from '../utils/Constants';
 
-export const getDataToDisplay = async (url) => {
+export const getDataToDisplay = async (url, categoryId) => {
     const response = await getData(url);
     const returnObject = buildDataObject(response);
     let datasToSave = returnObject.items;
@@ -9,7 +9,6 @@ export const getDataToDisplay = async (url) => {
         await loadMoreApiDatasIf(returnObject.next, datasToSave);
     }
     return datasToSave;
-
 };
 
 const getData = async (url) => {
@@ -35,7 +34,12 @@ const buildDataObject = (data) => {
     };
 }
 
-//TODO: find a way to display the good image from each characters
 const collectItems = (results) => {
-    return results.map(item => ({ id: item.url, title: item.name, src: LUKE_FOR_DEBUG, url: item.url }));
+    return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url), url: item.url }));
+}
+
+//TODO: GET IMAGE FOR OTHER CATEGORY
+const getImages = (url) => {
+    const id = url.match(/[0-9]+/g);
+    return CHARACTERS_IMAGES.find(image =>image.id == id).image;
 }

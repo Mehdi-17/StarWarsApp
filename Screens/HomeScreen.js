@@ -24,6 +24,7 @@ const HomeScreen = ({ navigation }) => {
                     cardContainerStyle={cardContainerStyle}
                     titleCardStyle={titleCardStyle}
                     imageBackgroundCardStyle={imageBackgroundCardStyle}
+                    imageFromInternet={false}
                 />
             </ImageBackground>
         </View>

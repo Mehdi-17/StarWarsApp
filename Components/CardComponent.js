@@ -1,14 +1,21 @@
-import React from 'react'
-import { View, Text, StyleSheet, ImageBackground, TouchableOpacity } from 'react-native';
+import React, { useState } from 'react'
+import { View, Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 
-const CardComponent = ({ cardTitle, titleCardStyle, imageBackgroundCardStyle, backgroundImageUrl, onPressCard, cardStyle }) => {
+const CardComponent = ({ cardTitle, titleCardStyle, imageBackgroundCardStyle, backgroundImageUrl, onPressCard, cardStyle, imageFromInternet }) => {
     const { categoryImageBackground } = styles;
+    const imageSource = imageFromInternet ? { uri: backgroundImageUrl } : backgroundImageUrl;
+    const [isLoaded, setIsLoaded] = useState(false);
 
     return (
         <TouchableOpacity style={cardStyle} onPress={onPressCard}>
-            <ImageBackground source={backgroundImageUrl} style={[categoryImageBackground, imageBackgroundCardStyle]} resizeMode='cover' >
+            <ImageBackground
+                source={imageSource}
+                style={[categoryImageBackground, imageBackgroundCardStyle]}
+                resizeMode='cover'
+                onLoadEnd={() => setIsLoaded(true)} >
                 <Text style={titleCardStyle}>{cardTitle}</Text>
             </ImageBackground>
+            {!isLoaded && <ActivityIndicator size="large" color="yellow" />}
         </TouchableOpacity>
     )
 }

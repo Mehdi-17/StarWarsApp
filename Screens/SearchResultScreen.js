@@ -49,6 +49,7 @@ const SearchResultScreen = ({ navigation, route }) => {
                     cardContainerStyle={cardContainerStyle}
                     titleCardStyle={titleCardStyle}
                     imageBackgroundCardStyle={imageBackgroundCardStyle}
+                    imageFromInternet = {true}
                 />
             </View>
         );
