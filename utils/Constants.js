@@ -118,7 +118,7 @@ export const CHARACTERS_IMAGES = [
     { id: 74, image: "https://vignette.wikia.nocookie.net/starwars/images/1/15/Jocasta_Nu_SWE.png" },
     { id: 75, image: "https://vignette.wikia.nocookie.net/starwars/images/6/6b/R4-P17.jpg" },
     { id: 76, image: "https://vignette.wikia.nocookie.net/starwars/images/a/a5/Wat_Tambor.png" },
-    { id: 77, image: "https://vignette.wikia.nocookie.net/starwars/images/6/6f/SanHill_hs.jpg" },
+    { id: 77, image: "https://static.wikia.nocookie.net/frstarwars/images/2/2e/San_Hill.png/revision/latest?cb=20200731071109" },
     { id: 78, image: "https://vignette.wikia.nocookie.net/starwars/images/2/20/Shaak_Ti_closeup-SWE.png" },
     { id: 79, image: "https://vignette.wikia.nocookie.net/starwars/images/d/de/Grievoushead.jpg" },
     { id: 80, image: "https://vignette.wikia.nocookie.net/starwars/images/3/37/Tarfful_RotS.png" },

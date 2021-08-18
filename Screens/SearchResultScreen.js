@@ -4,9 +4,6 @@ import { getDataToDisplay } from '../Service/StarWarsService';
 import { APP_BACKGROUND_COLOR, CATEGORY_DATAS, SECONDARY_APP_COLOR } from '../utils/Constants';
 import FlatListComponent from '../Components/FlatListComponent';
 
-
-//TODO: Improve performance of getDataToDisplay
-
 const SearchResultScreen = ({ navigation, route }) => {
     const { searchId } = route.params;
     const [dataToDisplay, setDataToDisplay] = useState(null);
@@ -85,7 +82,9 @@ const styles = StyleSheet.create({
     titleCardStyle: {
         color: 'white',
         fontSize: 20,
-        textAlign: 'center'
+        textAlign: 'center',
+        width: '100%',
+        backgroundColor: SECONDARY_APP_COLOR
     }
 });
 
