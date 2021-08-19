@@ -11,7 +11,7 @@ export const getDataToDisplay = async (url, categoryId) => {
     return datasToSave;
 };
 
-const getData = async (url) => {
+export const getData = async (url) => {
     return await fetch(url)
         .then((response) => response.json())
         .catch((err) => console.error(err));
@@ -36,7 +36,7 @@ const buildDataObject = (data, categoryId) => {
 
 const collectItems = (results, categoryId) => {
     if (categoryId === 1) {
-        return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url, categoryId), url: item.url, birth: item.birth_year, gender: item.gender, height: item.height, mass: item.mass }));
+        return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url, categoryId), url: item.url, birth: item.birth_year, gender: item.gender, height: item.height, mass: item.mass, homeworld: item.homeworld }));
     }
     return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url, categoryId), url: item.url }));
 

@@ -80,9 +80,10 @@ const styles = StyleSheet.create({
     },
     titleCardStyle: {
         color: 'white',
-        fontSize: 20,
+        fontSize: 22,
         textAlign: 'center',
         width: '100%',
+        fontFamily: 'TenaliRegular',
         backgroundColor: SECONDARY_APP_COLOR
     }
 });

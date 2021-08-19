@@ -5,7 +5,6 @@ export const STATUS_BAR_HEIGHT = StatusBar.currentHeight;
 export const PLATFORM = Platform.OS === 'android' ? 'md' : 'ios';
 export const APP_BACKGROUND_COLOR = '#071532';
 export const SECONDARY_APP_COLOR = '#12294d';
-export const LUKE_FOR_DEBUG = require("../assets/character.jpg");
 
 export const appTheme = {
     ...DefaultTheme,
@@ -14,6 +13,7 @@ export const appTheme = {
         background: APP_BACKGROUND_COLOR
     }
 };
+
 
 export const CATEGORY_DATAS = [
     {
@@ -72,7 +72,7 @@ export const CHARACTERS_IMAGES = [
     { id: 25, image: "https://vignette.wikia.nocookie.net/starwars/images/8/8f/Lando_ROTJ.png" },
     { id: 26, image: "https://vignette.wikia.nocookie.net/starwars/images/9/96/SWE_Lobot.jpg" },
     { id: 27, image: "https://vignette.wikia.nocookie.net/starwars/images/2/29/Admiral_Ackbar_RH.png" },
-    { id: 28, image: "https://vignette.wikia.nocookie.net/starwars/images/b/b7/MP-MonMothma.png" },
+    { id: 28, image: "https://static.wikia.nocookie.net/frstarwars/images/a/a7/Mon_Mothma.jpg/revision/latest?cb=20150314110814" },
     { id: 29, image: "https://vignette.wikia.nocookie.net/starwars/images/d/de/Arvel-crynyd.jpg" },
     { id: 30, image: "https://vignette.wikia.nocookie.net/starwars/images/4/4f/Wicket_RotJ.png" },
     { id: 31, image: "https://vignette.wikia.nocookie.net/starwars/images/1/14/Old_nien_nunb_-_profile.png" },
