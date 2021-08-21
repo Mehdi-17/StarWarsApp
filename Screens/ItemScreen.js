@@ -53,6 +53,7 @@ const ItemScreen = ({ navigation, route }) => {
                 imageBackgroundCardStyle={imageBackgroundCardStyle}
                 titleCardStyle={titleCardStyle}
                 imageFromInternet={true}
+                disabled={true}
             />
             {renderCharacterInfo()}
         </View>

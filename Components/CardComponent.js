@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import { Text, StyleSheet, ImageBackground, TouchableOpacity, ActivityIndicator } from 'react-native';
 
-const CardComponent = ({ cardTitle, titleCardStyle, imageBackgroundCardStyle, backgroundImageUrl, onPressCard, cardStyle, imageFromInternet }) => {
+const CardComponent = ({ cardTitle, titleCardStyle, imageBackgroundCardStyle, backgroundImageUrl, onPressCard, cardStyle, imageFromInternet, disabled}) => {
     const { categoryImageBackground } = styles;
     const imageSource = imageFromInternet ? { uri: backgroundImageUrl } : backgroundImageUrl;
     const [isLoaded, setIsLoaded] = useState(false);
 
     return (
-        <TouchableOpacity style={cardStyle} onPress={onPressCard}>
+        <TouchableOpacity style={cardStyle} onPress={onPressCard} disabled={disabled}>
             <ImageBackground
                 source={imageSource}
                 style={[categoryImageBackground, imageBackgroundCardStyle]}

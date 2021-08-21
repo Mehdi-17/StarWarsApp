@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import CardComponent from './CardComponent';
 
-const FlatListComponent = ({ navigation, parentStyle, cardContainerStyle, titleCardStyle, imageBackgroundCardStyle, booHorizontal, numColumns, dataToDisplay, onPress, imageFromInternet }) => {
+const FlatListComponent = ({ navigation, parentStyle, cardContainerStyle, titleCardStyle, imageBackgroundCardStyle, booHorizontal, numColumns, dataToDisplay, onPress, imageFromInternet, disabled }) => {
     const [selectedId, setSelectedId] = useState(null);
     const { baseCardItemStyle } = styles;
 
@@ -21,6 +21,7 @@ const FlatListComponent = ({ navigation, parentStyle, cardContainerStyle, titleC
             titleCardStyle={titleCardStyle}
             imageBackgroundCardStyle={imageBackgroundCardStyle}
             imageFromInternet={imageFromInternet}
+            disabled={disabled}
         />
     );
 

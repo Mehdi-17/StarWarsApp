@@ -46,6 +46,7 @@ const SearchResultScreen = ({ navigation, route }) => {
                     titleCardStyle={titleCardStyle}
                     imageBackgroundCardStyle={imageBackgroundCardStyle}
                     imageFromInternet = {true}
+                    disabled={false}
                 />
             </View>
         );
