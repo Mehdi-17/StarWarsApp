@@ -36,9 +36,9 @@ const buildDataObject = (data, categoryId) => {
 
 const collectItems = (results, categoryId) => {
     if (categoryId === 1) {
-        return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url, categoryId), url: item.url, birth: item.birth_year, gender: item.gender, height: item.height, mass: item.mass, homeworld: item.homeworld }));
+        return results.map(item => ({ id: item.url, categoryId: categoryId, title: item.name, src: getImages(item.url, categoryId), url: item.url, birth: item.birth_year, gender: item.gender, height: item.height, mass: item.mass, homeworld: item.homeworld }));
     }
-    return results.map(item => ({ id: item.url, title: item.name, src: getImages(item.url, categoryId), url: item.url }));
+    return results.map(item => ({ id: item.url, categoryId: categoryId, title: item.name, src: getImages(item.url, categoryId), url: item.url }));
 
 
 }

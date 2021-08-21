@@ -10,25 +10,36 @@ const ItemScreen = ({ navigation, route }) => {
     const [planet, setPlanet] = useState('');
 
     useEffect(() => {
-        getData(item.homeworld)
-            .then((response) => {
-                setPlanet(response.name);
-            });
-
+        if (item.categoryId === 1) {
+            getData(item.homeworld)
+                .then((response) => {
+                    setPlanet(response.name);
+                });
+        }
     }, []);
+
+    const renderItemDescription = () => {
+        if (item.categoryId === 1) {
+            return (<View style={descriptionContainer}>
+                {planet !== '' ?
+                    <Text style={itemText}>
+                        Né en {item.birth}, habitant principalement {planet} mesure {item.height}cm et pèse {item.mass}kg.
+                    </Text>
+                    :
+                    <ActivityIndicator />}
+            </View>);
+        } else {
+            return (<View style={descriptionContainer}>
+                <Text style={itemText}>Pas de description.</Text>
+            </View>);
+        }
+    }
 
     const renderCharacterInfo = () => {
         return (
             <View style={container}>
                 <Text style={itemTitleStyle}>{item.title}</Text>
-                <View style={descriptionContainer}>
-                    {planet !== '' ?
-                        <Text style={itemText}>
-                            Né en {item.birth}, habitant principalement {planet} mesure {item.height}cm et pèse {item.mass}kg.
-                        </Text>
-                        :
-                        <ActivityIndicator />}
-                </View>
+                {renderItemDescription()}
             </View>
         );
     }
